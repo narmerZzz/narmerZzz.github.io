@@ -1,6 +1,21 @@
+/* Misaki Gothic */
+@font-face {
+  font-family: "Misaki Gothic";
+  src: url("fonts/misaki_gothic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* base font */
+body {
+  font-family: "Misaki Gothic", monospace;
+}
+
+/* title */
 h1 {
   color: #0000dd;
-  font-family: "MS PGothic", "‚l‚r ‚oƒSƒVƒbƒN", sans-serif;
+  font-family: "MS PGothic", "â€šlâ€šr â€šoÆ’SÆ’VÆ’bÆ’N", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: clamp(30px, 7vw, 46px);
