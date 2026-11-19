@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ようこそサイトへ</title>
+<title>黒王墓</title>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; }
@@ -20,40 +20,28 @@
     font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
   }
   main { max-width: 760px; margin: 0 auto; padding: 42px 16px 70px; }
-  h1 { color: #0000dd; font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 7vw, 46px); letter-spacing: 0em; margin: 0 0 10px; text-shadow: 1px 1px 0 #a9c5ff; }
   .intro { font-size: 13px; margin: 0 0 32px; }
   hr { border: 0; border-top: 1px solid #779d99; max-width: 520px; margin: 24px auto; }
-  h2 { color: #863d39; font-size: 20px; letter-spacing: .25em; }
+  h2 { color: #000000; font-size: 18px; letter-spacing: 0em; }
   nav { display: flex; flex-direction: column; align-items: center; gap: 13px; margin: 25px auto 35px; }
   a { color: #0000ee; font-size: 17px; font-weight: 400; }
   a:visited { color: #551a8b; }
   a:hover { color: #df284e; }
   footer { font-size: 12px; }
-
-  /* CRT: vertical phosphor stripes and vignette */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    pointer-events: none;
-    background-image:
-      radial-gradient(ellipse at center, transparent 35%, rgba(8, 22, 40, .17) 74%, rgba(4, 12, 26, .52) 100%),
-      repeating-linear-gradient(to right, rgba(8, 21, 45, .20) 0px, rgba(8, 21, 45, .20) 1px, transparent 1px, transparent 4px);
-  }
 </style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="crt.css">
 </head>
 <body>
 <main>
-  <h1>ようこそサイトへ</h1>
-  <p class="intro">〜 個人ホームページへようこそ 〜</p>
+  <h1>黒王墓</h1>
+  <p class="intro">〜 やっつけホームページ 〜</p>
   <hr>
   <h2>CONTENTS</h2>
   <nav aria-label="コンテンツ">
-    <a href="session-log.html">セッションログ</a>
-    <a href="scenarios.html">シナリオ</a>
-    <a href="art.html">絵</a>
-    <a href="writing.html">文章</a>
+    <a href="session-log.html">木人KP企画卓報告</a>
+    <a href="https://tuxedo.booth.pm/" target="_blank" rel="noopener noreferrer">BOOTH</a>
+    <a href="https://www.foriio.com/narmer" target="_blank" rel="noopener noreferrer">ILLUSTLATION</a>
   </nav>
   <hr>
   <footer>Since 2026<br>Best viewed with your favorite browser.</footer>

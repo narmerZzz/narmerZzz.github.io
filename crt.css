@@ -1,0 +1,19 @@
+/* CRT overlay: vertical phosphor stripes and vignette */
+/* Shared by index.html, session-log.html, and session-detail.html */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at center,
+      transparent 35%,
+      rgba(8, 22, 40, 0.17) 74%,
+      rgba(4, 12, 26, 0.52) 100%),
+    repeating-linear-gradient(to right,
+      rgba(8, 21, 45, 0.20) 0px,
+      rgba(8, 21, 45, 0.20) 1px,
+      transparent 1px,
+      transparent 4px);
+}
