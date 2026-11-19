@@ -1,7 +1,7 @@
 /* Misaki Gothic */
 @font-face {
   font-family: "Misaki Gothic";
-  src: url("fonts/misaki_gothic.ttf") format("truetype");
+  src: url("misaki_gothic.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
