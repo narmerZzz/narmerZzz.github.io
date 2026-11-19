@@ -20,14 +20,43 @@
 <div class="table-wrap">
 <table aria-label="セッションログ一覧">
 <thead><tr><th>日付</th><th>シナリオタイトル</th><th>KP／PL名</th></tr></thead>
-<tbody>
-<tr><td>2026/11/19</td><td><a href="session-01.html">シナリオタイトル１</a></td><td>KP：名前A／PL：名前B</td></tr>
-<tr><td>2026/10/25</td><td><a href="session-02.html">シナリオタイトル２</a></td><td>KP：名前C／PL：名前D</td></tr>
-<tr><td>2026/09/10</td><td><a href="session-03.html">シナリオタイトル３</a></td><td>KP：名前E／PL：名前F</td></tr>
-<tr><td>2026/08/01</td><td><a href="session-04.html">シナリオタイトル４</a></td><td>KP：名前G／PL：名前H</td></tr>
-<tr><td>2026/07/12</td><td><a href="session-05.html">シナリオタイトル５</a></td><td>KP：名前I／PL：名前J</td></tr>
+<tbody id="session-rows"><tr><td colspan="3">読み込み中...</td></tr>
 </tbody></table>
 </div>
 <p><a href="index.html">← HOMEに戻る</a></p>
+<script>
+(async () => {
+  const tbody = document.getElementById('session-rows');
+  try {
+    const response = await fetch('./sessions.json');
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const sessions = await response.json();
+    if (!Array.isArray(sessions)) throw new Error('JSONは配列にしてください');
+    tbody.replaceChildren();
+    for (const session of [...sessions].sort((a,b) => b.date.localeCompare(a.date))) {
+      const tr = document.createElement('tr');
+      const date = document.createElement('td');
+      date.textContent = session.date.replaceAll('-', '/');
+      const title = document.createElement('td');
+      const link = document.createElement('a');
+      link.href = 'session-detail.html?id=' + encodeURIComponent(session.id);
+      link.textContent = session.title;
+      title.append(link);
+      const members = document.createElement('td');
+      members.textContent = 'KP：' + session.kp + '／PL：' + (session.pl || []).join('／');
+      tr.append(date, title, members);
+      tbody.append(tr);
+    }
+    if (!sessions.length) tbody.innerHTML = '<tr><td colspan="3">まだ記録がありません</td></tr>';
+  } catch (error) {
+    tbody.replaceChildren();
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = 3;
+    td.textContent = '読み込めませんでした。GitHub Pages上で確認してください。 (' + error.message + ')';
+    tr.append(td); tbody.append(tr);
+  }
+})();
+</script>
 </body>
 </html>
